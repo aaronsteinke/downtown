@@ -1,0 +1,130 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "URL slug"
+      }
+    },
+    "brand": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["brand"],
+        "label": "Brand"
+      }
+    },
+    "model_name": {
+      "type": "Text",
+      "config": {
+        "label": "Model Name"
+      }
+    },
+    "release_date": {
+      "type": "Date",
+      "config": {
+        "label": "Release Date"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
+      }
+    },
+    "studio_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Studio Image"
+      }
+    },
+    "price": {
+      "type": "Number",
+      "config": {
+        "label": "Price",
+        "placeholder": "in Euro"
+      }
+    },
+    "weight_in_gram": {
+      "type": "Number",
+      "config": {
+        "label": "Weight in Gram"
+      }
+    },
+    "own_weight": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "manufacturer",
+        "placeholder_true": "own weight",
+        "default_value": true,
+        "label": "Own Weight?"
+      }
+    }
+  },
+  "Specs": {
+    "motor": {
+      "type": "Text",
+      "config": {
+        "label": "Motor"
+      }
+    },
+    "battery_size": {
+      "type": "Text",
+      "config": {
+        "label": "Battery Size"
+      }
+    },
+    "display": {
+      "type": "Text",
+      "config": {
+        "label": "Display"
+      }
+    },
+    "fork": {
+      "type": "Text",
+      "config": {
+        "label": "Fork"
+      }
+    },
+    "rear_shock": {
+      "type": "Text",
+      "config": {
+        "label": "Rear Shock"
+      }
+    },
+    "drivetrain": {
+      "type": "Text",
+      "config": {
+        "label": "Drivetrain"
+      }
+    },
+    "brakes": {
+      "type": "Text",
+      "config": {
+        "label": "Brakes"
+      }
+    },
+    "lights": {
+      "type": "Text",
+      "config": {
+        "label": "Lights"
+      }
+    },
+    "fender": {
+      "type": "Text",
+      "config": {
+        "label": "Fender"
+      }
+    },
+    "tires": {
+      "type": "Text",
+      "config": {
+        "label": "Tires"
+      }
+    }
+  }
+}

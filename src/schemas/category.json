@@ -1,0 +1,56 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "URL slug"
+      }
+    },
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Category Name"
+      }
+    },
+    "color_override": {
+      "type": "Color",
+      "config": {
+        "label": "Color Override"
+      }
+    },
+    "show_on_website": {
+      "type": "Boolean",
+      "config": {
+        "default_value": true,
+        "label": "Show on Website"
+      }
+    }
+  },
+  "Category Page": {
+    "has_category_page": {
+      "type": "Boolean",
+      "config": {
+        "default_value": true,
+        "label": "Create Category Page?"
+      }
+    },
+    "custom_category_page": {
+      "type": "Link",
+      "config": {
+        "label": "Custom Category Page"
+      }
+    },
+    "seo_title": {
+      "type": "Text",
+      "config": {
+        "label": "SEO Title"
+      }
+    },
+    "meta_description": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Description"
+      }
+    }
+  }
+}

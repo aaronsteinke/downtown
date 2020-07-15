@@ -1,3 +1,5 @@
+const prismicHtmlSerializer = require('./src/utils/htmlSerializer')
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
@@ -25,6 +27,24 @@ module.exports = {
         path: `${__dirname}/content/assets`,
         name: `assets`,
       },
+    },
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `downtown`,
+        accessToken: `MC5YdzJrUGhBQUFDTUFFeWhl.Zu-_ve-_vWBB77-9cytSf--_vV3vv714Uu-_vTnvv70lTXPvv73vv73vv70b77-9G--_vS3vv73vv71u`,
+        linkResolver: () => (post) => `/${post.uid}`,
+        htmlSerializer: () => prismicHtmlSerializer,
+        lang: `de-de`,
+        schemas: {
+          author: require('./src/schemas/author.json'),
+          sidebar: require('./src/schemas/sidebar.json'),
+          bike: require('./src/schemas/bike.json'),
+          brand: require('./src/schemas/brand.json'),
+          category: require('./src/schemas/category.json'),
+          sidebar: require('./src/schemas/sidebar.json'),
+        }
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,

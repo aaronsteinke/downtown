@@ -1,0 +1,435 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "URL slug"
+      }
+    },
+    "post_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Post Title"
+      }
+    },
+    "excerpt": {
+      "type": "Text",
+      "config": {
+        "label": "Excerpt"
+      }
+    },
+    "release_date": {
+      "type": "Date",
+      "config": {
+        "label": "Release Date"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "image": [
+            {
+              "name": "full_width_image",
+              "display": "Full Width Image"
+            },
+            {
+              "name": "big_image",
+              "display": "Big Image"
+            }
+          ],
+          "images": [
+            {
+              "name": "gallery",
+              "display": "Gallery"
+            },
+            {
+              "name": "slideshow",
+              "display": "Slideshow"
+            },
+            {
+              "name": "auto_grid",
+              "display": "Auto Grid"
+            }
+          ],
+          "custom_html": [],
+          "bike": [
+            {
+              "name": "pic_and_keyfacts",
+              "display": "Pic and Keyfacts"
+            },
+            {
+              "name": "specs",
+              "display": "Specs"
+            },
+            {
+              "name": "geometry_tabls",
+              "display": "Geometry Tabls"
+            },
+            {
+              "name": "rating_chart",
+              "display": "Rating Chart"
+            },
+            {
+              "name": "tops_and_flops",
+              "display": "Tops and Flops"
+            }
+          ],
+          "text": [
+            {
+              "name": "highlight",
+              "display": "Highlight"
+            }
+          ]
+        },
+        "choices": {
+          "image": {
+            "type": "Slice",
+            "fieldset": "Image",
+            "description": "Displays an Image w. optional Caption",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "image_caption": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "strong, em, hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Image Caption"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Link"
+                }
+              },
+              "enable_zoom": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Enable Zoom"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "images": {
+            "type": "Slice",
+            "fieldset": "Images",
+            "description": "Display multiple images",
+            "icon": "collections",
+            "display": "grid",
+            "non-repeat": {
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": ["Standard", "Full Width"],
+                  "default_value": "Standard",
+                  "label": "Width"
+                }
+              },
+              "group_caption": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "strong, em, hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Group Caption"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": ["Full", "Half", "Third", "Fourth"],
+                  "label": "Width"
+                }
+              },
+              "image_caption": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "strong, em, hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Image Caption"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link"
+                }
+              }
+            }
+          },
+          "custom_html": {
+            "type": "Slice",
+            "fieldset": "Custom HTML",
+            "description": "Enter any HTML Code. Use with caution",
+            "icon": "code",
+            "display": "list",
+            "non-repeat": {
+              "html_code": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "preformatted",
+                  "allowTargetBlank": true,
+                  "label": "HTML Code"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "text": {
+            "type": "Slice",
+            "fieldset": "Text",
+            "description": "Rich Text Section",
+            "icon": "text_fields",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "text",
+                  "placeholder": "Your content here"
+                }
+              }
+            },
+            "repeat": {},
+            "display": "list"
+          },
+          "bike": {
+            "type": "Slice",
+            "fieldset": "Bike",
+            "description": "Display Info from One Bike",
+            "icon": "face",
+            "display": "list",
+            "non-repeat": {
+              "bike": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["bike"],
+                  "label": "Bike"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "quote": {
+            "type": "Slice",
+            "fieldset": "Quote",
+            "description": "A short quote with author's portrait",
+            "icon": "add_alert",
+            "non-repeat": {
+              "quote": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "em",
+                  "label": "Quote",
+                  "placeholder": "Your quote"
+                }
+              },
+              "name_of_the_author": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Name of the author",
+                  "placeholder": "John Doe"
+                }
+              },
+              "portrait_author": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 700,
+                    "height": 700
+                  },
+                  "thumbnails": [
+                    {
+                      "name": "mobile",
+                      "width": 350,
+                      "height": 350
+                    }
+                  ],
+                  "label": "Portrait Author"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "Featured Image & Header": {
+    "featured_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Featured Image"
+      }
+    },
+    "header-style": {
+      "type": "Select",
+      "config": {
+        "options": ["Full Width", "No Header", "Narrow"],
+        "default_value": "Full Width",
+        "label": "Header-Style"
+      }
+    },
+    "show_toc": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Show Table of Contents"
+      }
+    }
+  },
+  "Meta Data": {
+    "categories": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "category": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["category"],
+              "label": "Category"
+            }
+          }
+        },
+        "label": "Categories"
+      }
+    },
+    "authors": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "author": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["author"],
+              "label": "Author"
+            }
+          }
+        },
+        "label": "Authors"
+      }
+    },
+    "additional_authors": {
+      "type": "Text",
+      "config": {
+        "label": "Additional Authors"
+      }
+    },
+    "brands": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "brand": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["brand"],
+              "label": "Brand"
+            }
+          }
+        },
+        "label": "Brands"
+      }
+    },
+    "photographers": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "photographer": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["author"],
+              "label": "Photographer"
+            }
+          }
+        },
+        "label": "Photographers"
+      }
+    },
+    "additional_photographers": {
+      "type": "Text",
+      "config": {
+        "label": "Additional Photographers"
+      }
+    }
+  },
+  "Sidebar & Styling": {
+    "custom_css": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "preformatted",
+        "label": "Custom CSS"
+      }
+    }
+  },
+  "SEO": {
+    "seo_title": {
+      "type": "Text",
+      "config": {
+        "label": "SEO Title"
+      }
+    },
+    "meta_description": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Description"
+      }
+    },
+    "canonical_url": {
+      "type": "Link",
+      "config": {
+        "label": "Canonical URL"
+      }
+    }
+  },
+  "Related Posts": {
+    "related_posts": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "related_post": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["post"],
+              "label": "Related Post"
+            }
+          }
+        },
+        "label": "Related Posts"
+      }
+    }
+  },
+  "Magazine / Website": {}
+}

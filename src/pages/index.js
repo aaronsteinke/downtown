@@ -8,32 +8,33 @@ import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allPrismicPost.edges
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
+        const title = node.data.post_title[0].text || "not found"
+        console.log(node.data);
         return (
-          <article key={node.fields.slug}>
+          <article key={node.uid}>
             <header>
               <h3
                 style={{
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <Link style={{ boxShadow: `none` }} to={node.uid}>
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <small>{node.data.release_date}</small>
             </header>
             <section>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
+                  __html: node.data.excerpt,
                 }}
               />
             </section>
@@ -64,6 +65,20 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+          }
+        }
+      }
+    }
+    allPrismicPost(sort: {fields: data___release_date, order: DESC}) {
+      edges {
+        node {
+          uid
+          data {
+            release_date
+            excerpt
+            post_title {
+              text
+            }
           }
         }
       }
