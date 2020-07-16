@@ -1,7 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Image from "gatsby-image"
 
-import Bio from "../components/bio"
+import Authorbox from "../components/authorbox"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
@@ -13,13 +14,15 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
       {posts.map(({ node }) => {
-        const title = node.data.post_title[0].text || "not found"
+        const title = node.data.post_title.text || "not found"
+        const featuredImage = node.data.featured_image.fluid
+        const postDate = new Date(node.data.release_date).toLocaleDateString()
         console.log(node.data);
         return (
           <article key={node.uid}>
             <header>
+              <Image fluid={featuredImage} />
               <h3
                 style={{
                   marginBottom: rhythm(1 / 4),
@@ -29,7 +32,7 @@ const BlogIndex = ({ data, location }) => {
                   {title}
                 </Link>
               </h3>
-              <small>{node.data.release_date}</small>
+              <small>{postDate}</small>
             </header>
             <section>
               <p
@@ -78,6 +81,12 @@ export const pageQuery = graphql`
             excerpt
             post_title {
               text
+            }
+            featured_image {
+              alt
+              fluid(maxHeight:1000,maxWidth: 1000) {
+                ...GatsbyPrismicImageFluid
+              }
             }
           }
         }

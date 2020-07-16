@@ -1,7 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Image from "gatsby-image"
 
-import Bio from "../components/bio"
+import Authorbox from "../components/authorbox"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
@@ -19,6 +20,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
+          <Image fluid={post.data.featured_image.fluid} />
           <h1
             style={{
               marginTop: rhythm(1),
@@ -44,7 +46,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           }}
         />
         <footer>
-          <Bio />
+          <Authorbox authors={post.data.authors}/>
         </footer>
       </article>
 
@@ -90,11 +92,78 @@ export const pageQuery = graphql`
     prismicPost( uid: { eq: $slug  }) {
       uid
       data {
-        release_date(formatString: "DD.MMMM, YYYY")
+        excerpt
         post_title {
           text
         }
-        excerpt
+        body {
+          ... on PrismicPostBodyImage {
+            id
+            primary {
+              image {
+                url
+              }
+              image_caption {
+                html
+              }
+            }
+          }
+          ... on PrismicPostBodyQuote {
+            id
+            primary {
+              name_of_the_author {
+                text
+              }
+              portrait_author {
+                url
+              }
+              quote {
+                text
+              }
+            }
+          }
+          ... on PrismicPostBodyText {
+            id
+            primary {
+              text {
+                html
+              }
+            }
+          }
+        }
+        featured_image {
+          alt
+          fluid(maxHeight:1000,maxWidth: 1000) {
+            ...GatsbyPrismicImageFluid
+          }
+        }
+        authors {
+          author {
+            document {
+              ... on PrismicAuthor {
+                id
+                data {
+                  first_name
+                  last_name
+                  short_bio {
+                    html
+                  }
+                  position
+                  profile_pic {
+                    thumbnails {
+                      Square{
+                        fixed(width: 75){
+                        ...GatsbyPrismicImageFixed
+                        }
+                      }
+                    }
+                  }
+                }
+                uid
+              }
+            }
+          }
+        }
       }
     }
   }

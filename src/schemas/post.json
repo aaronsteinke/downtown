@@ -181,24 +181,6 @@
               }
             }
           },
-          "custom_html": {
-            "type": "Slice",
-            "fieldset": "Custom HTML",
-            "description": "Enter any HTML Code. Use with caution",
-            "icon": "code",
-            "display": "list",
-            "non-repeat": {
-              "html_code": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "preformatted",
-                  "allowTargetBlank": true,
-                  "label": "HTML Code"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "text": {
             "type": "Slice",
             "fieldset": "Text",
@@ -281,21 +263,13 @@
       }
     }
   },
-  "Featured Image & Header": {
+  "Header": {
     "featured_image": {
       "type": "Image",
       "config": {
         "constraint": {},
         "thumbnails": [],
         "label": "Featured Image"
-      }
-    },
-    "header-style": {
-      "type": "Select",
-      "config": {
-        "options": ["Full Width", "No Header", "Narrow"],
-        "default_value": "Full Width",
-        "label": "Header-Style"
       }
     },
     "show_toc": {
@@ -306,7 +280,7 @@
       }
     }
   },
-  "Meta Data": {
+  "MetaData": {
     "categories": {
       "type": "Group",
       "config": {
@@ -384,7 +358,7 @@
       }
     }
   },
-  "Sidebar & Styling": {
+  "Sidebar": {
     "custom_css": {
       "type": "StructuredText",
       "config": {
@@ -413,7 +387,7 @@
       }
     }
   },
-  "Related Posts": {
+  "RelatedPosts": {
     "related_posts": {
       "type": "Group",
       "config": {
@@ -431,5 +405,5 @@
       }
     }
   },
-  "Magazine / Website": {}
+  "Magazine": {}
 }

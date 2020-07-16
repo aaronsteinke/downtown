@@ -11,7 +11,8 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
-          "posts": []
+          "posts": [],
+          "category": []
         },
         "choices": {
           "posts": {
@@ -28,6 +29,24 @@
                 }
               }
             },
+            "repeat": {
+              "post": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["post"],
+                  "label": "Post"
+                }
+              }
+            }
+          },
+          "category": {
+            "type": "Slice",
+            "fieldset": "Category",
+            "description": "Temporer Test",
+            "icon": "access_alarm",
+            "display": "list",
+            "non-repeat": {},
             "repeat": {}
           }
         }

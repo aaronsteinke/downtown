@@ -38,12 +38,15 @@ module.exports = {
         lang: `de-de`,
         schemas: {
           author: require('./src/schemas/author.json'),
-          sidebar: require('./src/schemas/sidebar.json'),
+          post: require('./src/schemas/post.json'),
           bike: require('./src/schemas/bike.json'),
           brand: require('./src/schemas/brand.json'),
           category: require('./src/schemas/category.json'),
           sidebar: require('./src/schemas/sidebar.json'),
-        }
+        },
+        shouldDownloadImage: ({ node, key, value }) => {
+          return true;
+        },
       }
     },
     {
